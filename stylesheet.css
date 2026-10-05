@@ -56,6 +56,8 @@ a { color: var(--link); text-decoration: none; }
 a:hover { color: var(--link-h); text-decoration: underline; }
 em { font-style: italic; }
 
+::selection { background: color-mix(in srgb, var(--accent) 24%, transparent); }
+
 /* ── Top bar ──────────────────────────────────── */
 .topbar {
   position: fixed;
@@ -120,6 +122,12 @@ em { font-style: italic; }
   object-fit: cover;
   display: block;
   margin-bottom: 14px;
+  box-shadow: 0 0 0 1px var(--border), 0 10px 26px rgba(16, 24, 40, 0.14);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.avatar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 45%, var(--border)), 0 14px 32px rgba(16, 24, 40, 0.2);
 }
 .sidebar-name {
   font-size: 17px;
@@ -191,12 +199,23 @@ em { font-style: italic; }
 
 /* ── Section header ───────────────────────────── */
 .section-header {
+  position: relative;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   padding-bottom: 8px;
   margin-bottom: 18px;
   border-bottom: 1px solid var(--border);
+}
+.section-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 32px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
 }
 .section { margin-top: 46px; }
 .section-label { font-size: 14px; font-weight: 600; color: var(--fg); }
@@ -260,13 +279,19 @@ em { font-style: italic; }
   width: 300px;
   height: 170px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 8px;
   background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05);
   display: block;
-  transition: opacity 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .paper-media.contain { object-fit: contain; padding: 8px; }
-.paper:hover .paper-media { opacity: 0.86; }
+.paper:hover .paper-media {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(16, 24, 40, 0.12);
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+}
 
 .paper-body {
   grid-column: 1;
