@@ -344,6 +344,32 @@ em { font-style: italic; }
 
 /* ── Misc / footer ────────────────────────────── */
 .misc-text { font-size: 15px; line-height: 1.75; color: var(--body); }
+
+/* Cats gallery */
+.cats { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 18px; }
+.cat { margin: 0; width: 150px; }
+.cat img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center 32%;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05);
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cat:hover img {
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: 0 10px 24px rgba(16, 24, 40, 0.14);
+}
+.cat figcaption {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 8px;
+}
 footer { margin-top: 52px; padding-top: 20px; border-top: 1px solid var(--border); }
 footer p { font-size: 12px; color: var(--subtle); }
 
