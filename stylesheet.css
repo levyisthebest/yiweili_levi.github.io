@@ -180,14 +180,21 @@ html[data-lang="zh"] body {
   transform: translateY(-2px);
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 45%, var(--border)), var(--shadow-lg);
 }
+.hero-side {
+  flex: 0 0 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
 .hero-text { flex: 1; min-width: 0; }
 .hero-text .bio:first-child { margin-top: -4px; }
 
 .social-icons {
   display: flex;
   flex-wrap: wrap;
-  gap: 17px;
-  margin-top: 16px;
+  justify-content: center;
+  gap: 18px;
 }
 .social-icons a {
   color: var(--muted);
@@ -556,7 +563,9 @@ footer p { font-size: 12px; color: var(--subtle); }
 
 @media (max-width: 680px) {
   .page { padding: calc(var(--topbar-h) + 20px) 20px 60px; }
-  .hero { flex-direction: column; gap: 16px; }
+  .hero { flex-direction: column; align-items: stretch; gap: 18px; }
+  .hero-side { flex: none; align-self: flex-start; }
+  .hero-text { width: 100%; }
   .hero-photo { width: 128px; }
   .svc-item { grid-template-columns: 1fr; gap: 2px; }
   .paper { grid-template-columns: 1fr; gap: 14px; }
