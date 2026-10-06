@@ -67,15 +67,15 @@
       <section class="intro">
         <p class="bio">
           I am a final-year <strong>CS Ph.D. candidate</strong> at the University of Georgia, where I am
-          fortunate to be advised by Prof. <a href="https://cobweb.cs.uga.edu/~tliu/">Tianming Liu</a>. I spent the summers of 2025 and 2026 as a
-          <strong>Research Scientist Intern</strong> at United Imaging Intelligence (Boston), where I was mentored by
-          Dr. <a href="https://scholar.google.com/citations?hl=en&user=RofM7TAAAAAJ" target="_blank" rel="noopener">Yikang Liu</a>
-          and Dr. <a href="https://sites.google.com/site/shanhuisun/" target="_blank" rel="noopener">Shanhui Sun</a>. I am also affiliated with
+          fortunate to be advised by Prof. <a href="https://cobweb.cs.uga.edu/~tliu/">Tianming Liu</a>. I am also affiliated with
           <a href="https://camca.mgh.harvard.edu/about-us/">CAMCA, Harvard Medical School</a>, where I am fortunate to be
           mentored by Dr. <a href="https://scholar.google.com/citations?hl=en&user=MHq2z7oAAAAJ" target="_blank" rel="noopener">Quanzheng Li</a>
           and Dr. <a href="https://scholar.google.com/citations?user=MjkwwiQAAAAJ" target="_blank" rel="noopener">Xiang Li</a>,
           and equally grateful to work closely with Dr. <a href="https://lin-zhao-research.github.io/" target="_blank" rel="noopener">Lin Zhao</a>
-          (New Jersey Institute of Technology).
+          (New Jersey Institute of Technology). I spent the summers of 2025 and 2026 as a
+          <strong>Research Scientist Intern</strong> at United Imaging Intelligence (Boston), where I was mentored by
+          Dr. <a href="https://scholar.google.com/citations?hl=en&user=RofM7TAAAAAJ" target="_blank" rel="noopener">Yikang Liu</a>
+          and Dr. <a href="https://sites.google.com/site/shanhuisun/" target="_blank" rel="noopener">Shanhui Sun</a>.
           Earlier, I earned my B.S. from the <strong>Chien-Shiung Wu Honors College</strong> and my M.S. at Southeast
           University, the latter under the kind guidance of Prof. <a href="https://home.penglab.com/">Hanchuan Peng</a> on computational
           neuroscience. My work has received
@@ -101,7 +101,7 @@
           <a class="section-link" href="https://scholar.google.com/citations?user=sfEPWiAAAAAJ&hl=en" target="_blank" rel="noopener">Full list ↗</a>
         </div>
 
-        <div class="papers">
+        <div class="papers collapsed" id="papers">
 
           <!-- RAU -->
           <article class="paper">
@@ -324,6 +324,7 @@
           </article>
 
         </div>
+        <button class="show-more" id="pubToggle" onclick="togglePubs()" aria-controls="papers" aria-expanded="false"></button>
       </section>
 
       <!-- ── News ── -->
@@ -384,7 +385,7 @@
       </section>
 
       <footer>
-        <p>© 2026 Yiwei Li · Last updated July 2026 · Design inspired by <a href="https://jiawei-yang.github.io/" target="_blank" rel="noopener">Jiawei Yang</a>.</p>
+        <p>© 2026 Yiwei Li · Last updated October 2026 · Design inspired by <a href="https://jiawei-yang.github.io/" target="_blank" rel="noopener">Jiawei Yang</a>.</p>
       </footer>
 
     </main>
@@ -397,6 +398,24 @@
       root.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
     }
+
+    function togglePubs() {
+      var box = document.getElementById('papers');
+      var btn = document.getElementById('pubToggle');
+      var collapsed = box.classList.toggle('collapsed');
+      btn.setAttribute('aria-expanded', String(!collapsed));
+      btn.textContent = collapsed
+        ? 'Show all ' + box.querySelectorAll('.paper').length + ' publications ↓'
+        : 'Show fewer ↑';
+    }
+
+    (function () {
+      var box = document.getElementById('papers');
+      var btn = document.getElementById('pubToggle');
+      if (box && btn) {
+        btn.textContent = 'Show all ' + box.querySelectorAll('.paper').length + ' publications ↓';
+      }
+    })();
   </script>
 
 </body>
