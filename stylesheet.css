@@ -101,8 +101,18 @@ em { font-style: italic; }
 [data-theme="light"] .icon-moon { display: none; }
 [data-theme="dark"]  .icon-sun  { display: none; }
 
+/* ── Background ribbons canvas ────────────────── */
+#ribbons-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
 /* ── Page ─────────────────────────────────────── */
 .page {
+  position: relative;
+  z-index: 1;
   max-width: 880px;
   margin: 0 auto;
   padding: calc(var(--topbar-h) + 44px) 32px 80px;
