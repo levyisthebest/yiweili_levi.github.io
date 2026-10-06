@@ -232,31 +232,85 @@ em { font-style: italic; }
 .section-link { font-size: 12px; color: var(--muted); border-bottom: none; }
 .section-link:hover { color: var(--fg); text-decoration: none; }
 
-/* ── News ─────────────────────────────────────── */
-.news { display: flex; flex-direction: column; }
+/* ── Honors + News two-column ─────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 44px;
+  align-items: start;
+}
+.two-col .section-header { margin-bottom: 14px; }
+
+/* Honors & Awards */
+.awards { display: flex; flex-direction: column; }
+.award-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+.award-item:first-child { border-top: none; padding-top: 2px; }
+.award-name { font-size: 14.5px; font-weight: 600; color: var(--fg); line-height: 1.35; text-wrap: balance; }
+.award-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.award-year { font-size: 13px; color: var(--subtle); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* News */
+.news {
+  display: flex;
+  flex-direction: column;
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.news::-webkit-scrollbar { width: 8px; }
+.news::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
+.news::-webkit-scrollbar-thumb:hover { background: var(--subtle); }
+.news::-webkit-scrollbar-track { background: transparent; }
 .news-item {
   display: grid;
-  grid-template-columns: 74px 1fr;
-  gap: 16px;
-  padding: 8px 0;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: baseline;
+  padding: 9px 0;
   font-size: 14px;
   border-top: 1px solid var(--border);
 }
-.news-item:first-child { border-top: none; }
-.news-date { color: var(--subtle); font-variant-numeric: tabular-nums; }
-.news-body { color: var(--body); }
-.news-new {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #e8590c;
-  border: 1px solid currentColor;
-  border-radius: 100px;
-  padding: 0 6px;
-  margin-right: 7px;
-  vertical-align: 1px;
+.news-item:first-child { border-top: none; padding-top: 2px; }
+.news-main { color: var(--body); line-height: 1.5; text-wrap: pretty; }
+.news-tag {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1px 7px;
+  margin-right: 8px;
+  vertical-align: 1.5px;
+  white-space: nowrap;
 }
+.news-when { font-size: 13px; color: var(--subtle); font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+
+/* Education / Internships entries (shared) */
+.entries { display: flex; flex-direction: column; }
+.entry {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+.entry:first-child { border-top: none; padding-top: 2px; }
+.entry-name { font-size: 14.5px; font-weight: 600; color: var(--fg); line-height: 1.35; text-wrap: balance; }
+.entry-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.entry-detail { font-size: 13.5px; color: var(--body); margin-top: 3px; }
+.entry-date { font-size: 13px; color: var(--subtle); font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
 
 /* ── Service ──────────────────────────────────── */
 .svc { display: flex; flex-direction: column; }
@@ -408,6 +462,11 @@ footer { margin-top: 52px; padding-top: 20px; border-top: 1px solid var(--border
 footer p { font-size: 12px; color: var(--subtle); }
 
 /* ── Responsive ───────────────────────────────── */
+@media (max-width: 860px) {
+  .two-col { grid-template-columns: 1fr; gap: 30px; }
+  .news { max-height: none; overflow-y: visible; padding-right: 0; }
+}
+
 @media (max-width: 680px) {
   .layout { flex-direction: column; gap: 32px; padding: calc(var(--topbar-h) + 24px) 20px 60px; }
   .sidebar {
