@@ -22,8 +22,10 @@
     fadeOut: 0.012
   };
   function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
-  function alphaBase() { return isDark() ? 0.13 : 0.16; }
+  function alphaBase() { return isDark() ? 0.11 : 0.13; }
   function bright() { return isDark() ? '56%' : '62%'; }
+  // vertical wander in absolute px, capped so tall viewports never produce giant triangles
+  function wander() { return Math.min(H * opt.verticalWander, 90); }
 
   var W = 0, H = 0, py = 0, ribbons = [], raf = null, running = false;
   function rand(a, b) { return Math.random() * (b - a) + a; }
@@ -61,7 +63,8 @@
   function addSection(r) {
     var step = opt.horizontalSpeed * rand(0.6, 1.1);
     var lo = H * 0.06 - py, hi = H * 0.94 - py;
-    var p3 = { x: r.p2.x + r.dir * step, y: r.p2.y + rand(-H * opt.verticalWander, H * opt.verticalWander) };
+    var w = wander();
+    var p3 = { x: r.p2.x + r.dir * step, y: r.p2.y + rand(-w, w) };
     p3.y = Math.max(lo, Math.min(hi, p3.y));
     r.sections.push({ p1: r.p1, p2: r.p2, p3: p3, hue: r.hue, phase: 0, alpha: 0, delay: 0, fading: false });
     r.p1 = r.p2; r.p2 = p3; r.hue = (r.hue + opt.colorCycleSpeed) % 360;
