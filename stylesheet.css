@@ -91,6 +91,32 @@ em { font-style: italic; }
   align-items: center;
   justify-content: space-between;
 }
+.topbar-actions { display: flex; align-items: center; gap: 8px; }
+
+/* ── Language switch (default English; Chinese when html[data-lang="zh"]) ── */
+html:not([data-lang="zh"]) .lang-zh { display: none !important; }
+html[data-lang="zh"] .lang-en { display: none !important; }
+html[data-lang="zh"] body {
+  font-family: 'Inter', -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+}
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 10px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color 0.15s, background 0.15s;
+}
+.lang-btn:hover { color: var(--fg); background: var(--surface); }
 .brand {
   font-size: 14px;
   font-weight: 600;
