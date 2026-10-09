@@ -331,6 +331,8 @@ html[data-lang="zh"] body {
 .news-tag.t-paper    { color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, var(--surface)); border-color: color-mix(in srgb, var(--accent) 28%, var(--border)); }
 .news-tag.t-position { color: #2b8a3e; background: color-mix(in srgb, #2b8a3e 9%, var(--surface)); border-color: color-mix(in srgb, #2b8a3e 28%, var(--border)); }
 .news-tag.t-service  { color: #d9480f; background: color-mix(in srgb, #d9480f 9%, var(--surface)); border-color: color-mix(in srgb, #d9480f 28%, var(--border)); }
+.news-tag.t-milestone { color: #a67c00; background: color-mix(in srgb, #e6b422 14%, var(--surface)); border-color: color-mix(in srgb, #e6b422 40%, var(--border)); }
+[data-theme="dark"] .news-tag.t-milestone { color: #f5c842; }
 [data-theme="dark"] .news-tag.t-position { color: #69db7c; }
 [data-theme="dark"] .news-tag.t-service  { color: #ffa94d; }
 
