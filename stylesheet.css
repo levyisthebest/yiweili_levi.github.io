@@ -534,6 +534,7 @@ html[data-lang="zh"] body {
   flex-shrink: 0;
 }
 .badge.oral { background: var(--link); color: var(--bg); }
+.badge.if { color: var(--muted); border-color: var(--border); background: var(--surface); font-variant-numeric: tabular-nums; }
 .paper-links { display: flex; gap: 12px; flex-wrap: wrap; }
 .paper-links a { font-size: 13px; color: var(--link); }
 .paper-links a:hover { color: var(--link-h); text-decoration: underline; }
