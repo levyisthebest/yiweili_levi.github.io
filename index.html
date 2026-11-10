@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=11">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=12">
   <script src="ribbons.js" defer></script>
   <link rel="alternate icon" type="image/png" href="images/UGA_CS.png">
 
@@ -108,14 +108,6 @@
 
     <p class="quote lang-en">"Bridge the gap between machine intelligence and the human brain — the essence of AGI will, ultimately, be multimodal."</p>
     <p class="quote lang-zh">“弥合机器智能与人脑之间的鸿沟——AGI 的本质，终将是多模态的。”</p>
-    <p class="job-market-note lang-en">
-      🎓 Graduating at the end of 2026 and <strong>on the full-time job market</strong> — seeking
-      research-scientist / applied-scientist roles starting 2027.
-      <a href="mailto:yl80817@uga.edu">Reach out</a> if there's a good fit.
-    </p>
-    <p class="job-market-note lang-zh">
-      🎓 我将于 2026 年底毕业，目前<strong>正在寻找全职工作</strong>——2027 年入职的研究科学家 / 应用科学家岗位。欢迎<a href="mailto:yl80817@uga.edu">联系我</a>！
-    </p>
 
       <!-- ── News ── -->
       <section class="section">
@@ -519,7 +511,7 @@
     (function () {
       if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       if (!('IntersectionObserver' in window)) return;
-      var els = document.querySelectorAll('.page > section, .page > .quote, .page > .job-market-note, .page > footer');
+      var els = document.querySelectorAll('.page > section, .page > .quote, .page > footer');
       var vh = window.innerHeight;
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {

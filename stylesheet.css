@@ -224,21 +224,6 @@ html[data-lang="zh"] body {
   border-left: 2px solid var(--border);
 }
 
-.job-market-note {
-  margin-top: 22px;
-  font-size: 15.5px;
-  font-weight: 500;
-  color: #d9480f;
-  line-height: 1.6;
-}
-[data-theme="dark"] .job-market-note { color: #ff922b; }
-.job-market-note a {
-  color: inherit;
-  border-bottom: 1px solid currentColor;
-}
-.job-market-note a:hover { color: #c92a2a; text-decoration: none; }
-[data-theme="dark"] .job-market-note a:hover { color: #ffc078; }
-
 /* ── Section header ───────────────────────────── */
 .section-header {
   position: relative;
